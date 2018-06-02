@@ -1,0 +1,44 @@
+.login {
+  background-image:  linear-gradient(to left, rgba(255,255,255,1) 0%, rgba(255,255,255,0.65) 42%, rgba(255,255,255,0.22) 93%, rgba(255,255,255,0.22) 100%), url('../../images/background.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+
+  .title {
+    color: black;
+    font-size: 3em;
+    font-weight: bold;
+    margin-top: 0;
+    padding-top: 2em;
+    text-transform: uppercase;
+  }
+
+  input, .submit {
+    height: 60px;
+    float: left;
+    font-size: 2em;
+    text-align: center;
+    padding: 10px;
+    margin-top: 40vh;
+  }
+
+  input {
+    color: #7e99a0;
+    margin-left: 10%;
+    width: 60%;
+    font-weight: 300;
+    line-height: 19px;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .submit {
+    background: red;
+    border: 0;
+    color: white;
+    width: 20%;
+    margin-right: 10%;
+    float: left;
+  }
+}
