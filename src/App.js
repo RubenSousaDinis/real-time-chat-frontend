@@ -14,9 +14,8 @@ export default class App extends Component {
   }
 
   handleLoginSubmit = (username) => {
-    console.log(username);
     this.setState({ loggedIn: true, username: username });
-    WebSocketInstance.loginUser(username);
+    WebSocketInstance.initChatUser(username);
   }
 
   render() {

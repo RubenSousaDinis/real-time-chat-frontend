@@ -57,10 +57,11 @@ export default class Chat extends Component {
 
   render() {
     const messages = this.state.messages;
+    const currentUser = this.props.currentUser;
     return (
       <div className='chat'>
         <div className='container'>
-          <h1>Chat Room</h1>
+          <h1>Chatting as {currentUser} </h1>
           <h3>Displaying only the last 50 messages</h3>
           <ul ref={(el) => { this.messagesEnd = el; }}>
            { 

@@ -19,9 +19,7 @@ class WebSocketService {
 
   connect() {
     const path = config.API_PATH;
-    console.log(path);
     this.socketRef = new WebSocket(path);
-    console.log(this.socketRef);
     this.socketRef.onopen = () => {
       console.log('WebSocket open');
     };
@@ -40,20 +38,20 @@ class WebSocketService {
 
   socketNewMessage(data) {
     const parsedData = JSON.parse(data);
-    console.log(parsedData);
     const command = parsedData.command;
-    console.log("COMMAND", command);
+    if (Object.keys(this.callbacks).length === 0) {
+      return;
+    }
     if (command === 'messages') {
       this.callbacks[command](parsedData.messages);
     }
     if (command === 'new_message') {
-      console.log("MESSAGE")
       this.callbacks[command](parsedData.message);
     }
   }
 
-  loginUser(username) {
-    this.sendMessage({ command: 'login', username: username });
+  initChatUser(username) {
+    this.sendMessage({ command: 'init_chat', username: username });
   }
 
   fetchMessages(username) {
