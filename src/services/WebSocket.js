@@ -7,7 +7,6 @@ class WebSocketService {
   static getInstance() {
     if (!WebSocketService.instance) {
         WebSocketService.instance = new WebSocketService();
-        WebSocketService.instance.connect();
     }
     return WebSocketService.instance;
   }
