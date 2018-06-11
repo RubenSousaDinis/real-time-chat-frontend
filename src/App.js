@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Login from './components/Login'
+import InitChat from './components/InitChat'
 import Chat from './components/Chat'
 import WebSocketInstance from './services/WebSocket'
 
@@ -32,7 +32,7 @@ export default class App extends Component {
             currentUser={username}
           />
           :
-          <Login
+          <InitChat
             onSubmit={this.handleLoginSubmit}
             usernameChangeHandler={this.usernameChangeHandler}
           />

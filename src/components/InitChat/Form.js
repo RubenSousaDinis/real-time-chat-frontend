@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './Login.scss';
+import './Init.scss';
 
-export default class LoginForm extends Component {
+export default class InitForm extends Component {
 
   constructor(props) {
       super(props);
