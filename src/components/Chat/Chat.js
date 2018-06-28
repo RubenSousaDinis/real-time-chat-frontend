@@ -67,6 +67,9 @@ export default class Chat extends Component {
       text: message
     };
     WebSocketInstance.newChatMessage(messageObject);
+    this.setState({
+      message: ''
+    })
     e.preventDefault();
   }
 
@@ -95,6 +98,7 @@ export default class Chat extends Component {
             <input
               type='text'
               onChange={this.messageChangeHandler}
+              value={this.state.message}
               placeholder='Type a Message'
               required />
             <button className='submit' type='submit' value='Submit'>
