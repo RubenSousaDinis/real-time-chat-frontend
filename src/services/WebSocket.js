@@ -6,14 +6,13 @@ class WebSocketService {
 
   static getInstance() {
     if (!WebSocketService.instance) {
-        WebSocketService.instance = new WebSocketService();
+      WebSocketService.instance = new WebSocketService();
     }
     return WebSocketService.instance;
   }
 
   constructor() {
     this.socketRef = null;
-    this.state = null;
   }
 
   connect() {
@@ -73,6 +72,29 @@ class WebSocketService {
     catch(err) {
       console.log(err.message);
     }  
+  }
+
+  state() {
+    return this.socketRef.readyState;
+  }
+
+   waitForSocketConnection(callback){
+    const socket = this.socketRef;
+    const recursion = this.waitForSocketConnection;
+    setTimeout(
+      function () {
+        if (socket.readyState === 1) {
+          console.log("Connection is made")
+          if(callback != null){
+            callback();
+          }
+          return;
+
+        } else {
+          console.log("wait for connection...")
+          recursion(callback);
+        }
+      }, 1); // wait 5 milisecond for the connection...
   }
 
 }
